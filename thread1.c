@@ -13,7 +13,7 @@ void* thread1(void*p)
 	printf("new connection \n");
 	int s=*(int*)p;
 	free(p);
-	printf("%d\n",s);
+	printf("%d\n",s-3);
 	while(1)
 	{
 
