@@ -32,7 +32,7 @@ void* thread1(void*p)
 
 int main(int argc,char**argv)
 {	
-	pthread_t t1;
+	pthread_t tid;
 	char rdbuf[128];
 	int sockfd;
 	struct sockaddr_in srv,cln;
@@ -59,7 +59,8 @@ int main(int argc,char**argv)
 	while(1)
 	{	int *newfd=malloc(sizeof(int));
 		*newfd=accept(sockfd,(struct sockaddr*)&cln,&len);
-		pthread_create(&t1,0,thread1,newfd);
+		pthread_create(&tid,0,thread1,newfd);
+	 	pthread_detach(tid);
 	}
 
 
